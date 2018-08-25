@@ -1,0 +1,28 @@
+================================== 1.CẤU HÌNH FILE VIEW ==================================
+
+1. Cấu Hình Bao Gồm Các BaseView Tên Class Sau Đây:
+    1.1 BaseViewController :
+        - Các lớp kế thừa bao gồm : UIViewController
+
+    1.2 BaseTableViewController :
+        - Các lớp kế thừa bao gồm : BaseViewController
+
+    1.3 BaseCollectionViewController
+        - Các lớp kế thừa bao gồm : BaseViewController
+
+
+================================== 2.CẤU HÌNH FILE MÀU SẮC ==================================
+
+2. Cấu Hình Bao Gồm Tên Class Như Sau:
+    2.1 KColor
+
+
+================================== 3.CẤU HÌNH FILE NAVIGATION CONTRUCTOR (HEADER) ==================================
+
+3. Cấu Hình Bao Gồm Tên Class Như Sau:
+    3.1 NavigationSettings
+
+
+================================== 4.CÁCH THỨC BUILD FILE CORE BASE UI FRAMEWORK ==================================
+
+
