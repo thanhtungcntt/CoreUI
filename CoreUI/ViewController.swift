@@ -13,7 +13,7 @@ class ViewController: BaseCollectionViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-    override func initView() {        
+    override func initView() {
         self.registerNibCollectionViewCell(self.collectionView, nameNib: "TestCell")
     }
     
@@ -31,6 +31,14 @@ class ViewController: BaseCollectionViewController {
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    override func onLoadMore() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.data?.addObjects(from: [1,2,3,4,5,6,7])
+            self.collectionView.reloadData()
+        }
+
     }
  
 }

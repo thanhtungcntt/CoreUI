@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  CoreUIAppDelegate.swift
 //  CoreUI
 //
 //  Created by Le Thanh Tung on 8/8/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class CoreUIAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 

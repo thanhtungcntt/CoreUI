@@ -10,6 +10,7 @@ import UIKit
 
 @objc public protocol BaseCollectionViewDataSource : NSObjectProtocol {
     func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
+    func onLoadMore()
 }
 
 public class BaseCollectionViewController: BaseViewController {
@@ -29,6 +30,10 @@ extension BaseCollectionViewController : BaseCollectionViewDataSource {
 }
 
 extension BaseCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data!.count
     }
@@ -38,6 +43,19 @@ extension BaseCollectionViewController : UICollectionViewDataSource, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        let lastSectionIndex = collectionView.numberOfSections - 1
+        let lastRowIndex = collectionView.numberOfItems(inSection: lastSectionIndex) - 1
+        if indexPath.item == lastRowIndex {
+            self.onLoadMore()
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        print("aaaaa")
+        return UICollectionReusableView()
+    }
+    
+    public func onLoadMore() {
+        print("=============Load more=============")
     }
 }

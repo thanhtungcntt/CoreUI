@@ -8,13 +8,6 @@
 
 import UIKit
 
-@objc public protocol BaseTableViewDataSource : NSObjectProtocol {
-    func setUpTableViewCell( _ tableView: UITableView,indexPath: IndexPath ) -> UITableViewCell
-    func onLoadMore()
-    func endLoadMore()
-    func setUpNibTableView(_ tableView : UITableView)
-}
-
 class BaseTableViewController: BaseViewController {
     public var data: NSMutableArray?
     public var isPullToRefesh = false // default pull to refesh is false
@@ -36,6 +29,10 @@ class BaseTableViewController: BaseViewController {
 }
 
 extension BaseTableViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         tableView.backgroundColor = UIColor.clear
@@ -67,9 +64,6 @@ extension BaseTableViewController : UITableViewDataSource {
         return self.setUpTableViewCell(tableView,indexPath: indexPath)
     }
     
-    public func setUpNibTableView(_ tableView : UITableView) {
-    }
-    
     // MARK: -  check show empty page
     public func showEmptyPageView() -> UIView {
         let emptyPage = EmtyPagerView.init(frame: UIScreen.main.bounds)
@@ -80,9 +74,10 @@ extension BaseTableViewController : UITableViewDataSource {
 
 extension BaseTableViewController : EmtyPagerViewDelegate {
     //MARK: - Action when click on empty page
-    @objc open func onRefeshDataEmptyPage() {
+    public func onRefeshDataEmptyPage() {
         initData()
-        print("==========On click empty data!==========") }
+        print("==========On click empty data!==========")
+    }
 }
 
 extension BaseTableViewController : UITableViewDelegate {
@@ -91,7 +86,7 @@ extension BaseTableViewController : UITableViewDelegate {
     }
 }
 
-extension BaseTableViewController : BaseTableViewDataSource {
+extension BaseTableViewController : BaseTableViewProtocol {
     public func setUpTableViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell.init()
     }

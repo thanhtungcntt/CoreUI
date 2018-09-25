@@ -8,33 +8,9 @@
 
 import UIKit
 
-// MARK: Data source base view
-@objc public protocol BaseViewDataSource : NSObjectProtocol {
-    // to set uo data
-    func initData()
-
-    // to set up view
-    func initView()
-
-    // to set background color for status bar
-    func setBackgroundStatusBar(_ color : UIColor, stausBarStyle : UIStatusBarStyle )
-    
-    // to set up navigation constructor
-    func setupNavigation(_ nav : NavigationSettings)
-    
-    // event click left of navigation
-    func leftAction()
-    
-    // event click right of navigation
-    func rightAction()
-    
-    // optional func access not call to it
-    @objc optional func checkConnectNextWork()
-}
-
 // MARK: BaseViewController
 open class BaseViewController: UIViewController {
-    weak open var dataSource : BaseViewDataSource?
+    weak open var dataSource : BaseViewProtocol?
     public var refreshControl : UIRefreshControl!
     private var viewLoading : UIView!
 
@@ -99,7 +75,7 @@ open class BaseViewController: UIViewController {
 }
 
 // MARK: Extend base view override base view data source
-extension BaseViewController :  BaseViewDataSource {
+extension BaseViewController :  BaseViewProtocol {
     public func initData() {}
     public func initView() {}
     
