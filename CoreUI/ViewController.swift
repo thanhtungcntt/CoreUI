@@ -8,41 +8,30 @@
 
 import UIKit
 
-class ViewController: BaseTableViewController {
+class ViewController: BaseCollectionViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-
-    override func initView() {
-        let nav = NavigationSettings(backButtonAndNavigationTitle: "Title")
-        self.setupNavigation(nav)
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        self.isPullToRefesh = true
-        self.isLoadMore = true
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    override func initView() {        
+        self.registerNibCollectionViewCell(self.collectionView, nameNib: "TestCell")
     }
     
     override func initData() {
         self.data = NSMutableArray.init()
-        for i in 0..<15 {
-            self.data?.add("\(i + 1)")
+        self.data?.addObjects(from: [1,2,3,4,5,6,7])
+        self.collectionView.reloadData()
+    }
+    
+    override func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestCell", for: indexPath) as? TestCell {
+            if let text = self.data![indexPath.row] as? Int {
+                cell.lbNumber.text = "\(text)"
+            }
+            return cell
         }
-        self.tableView.reloadData()
+        return UICollectionViewCell()
     }
-    
-    override func setUpTableViewCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if let textString = self.data?[indexPath.row] as? String {
-            cell.textLabel?.text = textString
-        }
-        return cell
-    }
-    
-    override func onLoadMore() {
-    }
-    
-    override func onRefeshData() {
-        initData()
-    }
+ 
 }
 

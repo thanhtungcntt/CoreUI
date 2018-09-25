@@ -9,32 +9,35 @@
 import UIKit
 
 @objc public protocol BaseCollectionViewDataSource : NSObjectProtocol {
-    var data : NSMutableArray { get set }
     func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
 }
 
 public class BaseCollectionViewController: BaseViewController {
-    public func registerNibCollectionViewCell() {}
+    public var data: NSMutableArray?
+
+    public func registerNibCollectionViewCell(_ collectionView : UICollectionView, nameNib : String) {
+        collectionView.register(UINib(nibName: nameNib, bundle: nil), forCellWithReuseIdentifier: nameNib)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
 }
 
 extension BaseCollectionViewController : BaseCollectionViewDataSource {
-    
-    public var data: NSMutableArray {
-        get { return self.data }
-        set { self.data = newValue }
-    }
-    
     public func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell.init()
     }
 }
 
-extension BaseCollectionViewController : UICollectionViewDataSource {
+extension BaseCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.data.count
+        return self.data!.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return self.setUpCell(collectionView,indexPath:indexPath)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
     }
 }

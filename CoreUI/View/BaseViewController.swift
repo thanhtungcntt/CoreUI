@@ -35,11 +35,13 @@ import UIKit
 // MARK: BaseViewController
 open class BaseViewController: UIViewController {
     weak open var dataSource : BaseViewDataSource?
-    
+    public var refreshControl : UIRefreshControl!
+    private var viewLoading : UIView!
+
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.initData()
         self.initView()
+        self.initData()
         self.initNavigation()
         self.setBackgroundStatusBar(KColor.getColorStatusBar(), stausBarStyle: .lightContent)
     }
@@ -117,6 +119,42 @@ extension BaseViewController :  BaseViewDataSource {
     }
 }
 
+// MARK: Custom loading
+extension BaseViewController {
+    
+    public func startLoading() {
+        let square = self.view.frame.size.width / 6
+        let frameLoading = CGRect(x: 0, y: 0, width: square, height: square)
+        self.viewLoading = UIView.init(frame: frameLoading)
+        let loading = NVActivityIndicatorView(frame: frameLoading, color: KColor.getColorLoadMoreControll(), padding: 5)
+        loading.startAnimating()
+        self.viewLoading.center = self.view.center
+        self.viewLoading.addSubview(loading)
+        self.view.addSubview(self.viewLoading)
+    }
+    
+    public func startLoadingDisView() {
+        let screen = UIScreen.main.bounds.size
+        self.viewLoading = UIView.init(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
+//        self.viewLoading.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        
+        let square = self.view.frame.size.width / 6
+        let frameLoading = CGRect(x: 0, y: 0, width: square, height: square)
+        let loading = NVActivityIndicatorView(frame: frameLoading, color: KColor.getColorLoadMoreControll(), padding: 5)
+        loading.startAnimating()
+        loading.center = self.viewLoading.center
+        
+        self.viewLoading.addSubview(loading)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(self.viewLoading)
+        UIApplication.shared.keyWindow?.rootViewController?.view.isUserInteractionEnabled = false
+    }
+    
+    public func stopLoading() {
+        self.viewLoading.removeFromSuperview()
+        UIApplication.shared.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
+    }
+}
 
 
 
