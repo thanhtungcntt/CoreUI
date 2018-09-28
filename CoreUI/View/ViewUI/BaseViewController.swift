@@ -112,7 +112,6 @@ extension BaseViewController {
     public func startLoadingDisView() {
         let screen = UIScreen.main.bounds.size
         self.viewLoading = UIView.init(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
-//        self.viewLoading.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         let square = self.view.frame.size.width / 6
         let frameLoading = CGRect(x: 0, y: 0, width: square, height: square)

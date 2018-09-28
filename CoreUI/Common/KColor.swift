@@ -15,4 +15,5 @@ public class KColor: NSObject {
     public static func getColorLoadMoreControll() -> UIColor { return UIColor().HexToColor(hexString: "#1E90FF") }
     public static func getColorWhite() -> UIColor { return UIColor.white }
     public static func getColorLoading() -> UIColor { return UIColor.red }
+    
 }

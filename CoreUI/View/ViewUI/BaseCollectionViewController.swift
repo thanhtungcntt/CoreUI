@@ -8,12 +8,7 @@
 
 import UIKit
 
-@objc public protocol BaseCollectionViewDataSource : NSObjectProtocol {
-    func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
-    func onLoadMore()
-}
-
-public class BaseCollectionViewController: BaseViewController {
+public class BaseCollectionViewController: BaseViewController, BaseCollectionViewProtocol {
     public var data: NSMutableArray?
 
     public func registerNibCollectionViewCell(_ collectionView : UICollectionView, nameNib : String) {
@@ -23,7 +18,7 @@ public class BaseCollectionViewController: BaseViewController {
     }
 }
 
-extension BaseCollectionViewController : BaseCollectionViewDataSource {
+extension BaseCollectionViewController {
     public func setUpCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell.init()
     }
