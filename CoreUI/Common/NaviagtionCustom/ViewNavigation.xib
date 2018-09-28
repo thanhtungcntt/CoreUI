@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewNaviation" customModule="CoreBaseUI" customModuleProvider="target">
+            <connections>
+                <outlet property="btnLeftAction" destination="PAN-qP-QpJ" id="dT1-4p-iKg"/>
+                <outlet property="btnRightAction" destination="ZOX-wi-hOK" id="JOc-8j-e3f"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="LgK-nD-Cna"/>
+                <outlet property="imgAvatar" destination="WW0-wZ-IYe" id="ZRi-Ca-ifL"/>
+                <outlet property="lbTitle" destination="VcF-3z-BW7" id="EC3-ru-vZh"/>
+                <outlet property="leftViewNav" destination="4Nl-tC-W9v" id="XEz-Zk-gDt"/>
+                <outlet property="rightViewNav" destination="e2E-HJ-Xgi" id="Bzg-Sg-qUo"/>
+                <outlet property="topViewNav" destination="ueD-zd-dDN" id="Iha-k4-kpN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="547" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueD-zd-dDN">
+                    <rect key="frame" x="0.0" y="0.0" width="547" height="39.5"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.78823529410000004" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nl-tC-W9v" customClass="CornerRadiusView" customModule="CoreBaseUI" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="16" width="60" height="39.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="DoF-Fo-jWb"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="cBotomRight" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2E-HJ-Xgi" customClass="CornerRadiusView" customModule="CoreBaseUI" customModuleProvider="target">
+                    <rect key="frame" x="136" y="16" width="411" height="39.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="cBotomLeft" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-qP-QpJ">
+                    <rect key="frame" x="0.0" y="0.0" width="58" height="55.5"/>
+                    <state key="normal" image="homeSelected"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ah2-VW-rHG" customClass="CircleImageView" customModule="CoreBaseUI" customModuleProvider="target">
+                    <rect key="frame" x="58" y="7" width="79" height="79"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="channel18" translatesAutoresizingMaskIntoConstraints="NO" id="WW0-wZ-IYe" customClass="CircleImageView" customModule="CoreBaseUI" customModuleProvider="target">
+                    <rect key="frame" x="58" y="7" width="79" height="79"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="WW0-wZ-IYe" secondAttribute="height" multiplier="1:1" id="43I-q0-PO6"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderCorlor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOX-wi-hOK">
+                    <rect key="frame" x="489" y="0.0" width="58" height="55.5"/>
+                    <state key="normal" image="navSettings"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcF-3z-BW7">
+                    <rect key="frame" x="147" y="18" width="334" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ueD-zd-dDN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4cv-P8-9ou"/>
+                <constraint firstItem="VcF-3z-BW7" firstAttribute="leading" secondItem="WW0-wZ-IYe" secondAttribute="trailing" constant="10" id="4hJ-7b-2gm"/>
+                <constraint firstItem="ZOX-wi-hOK" firstAttribute="height" secondItem="PAN-qP-QpJ" secondAttribute="height" id="Agy-St-0Cn"/>
+                <constraint firstItem="PAN-qP-QpJ" firstAttribute="leading" secondItem="ueD-zd-dDN" secondAttribute="leading" id="Aiu-ov-6xL"/>
+                <constraint firstItem="PAN-qP-QpJ" firstAttribute="top" secondItem="ueD-zd-dDN" secondAttribute="top" id="Aiy-Mu-3xM"/>
+                <constraint firstItem="e2E-HJ-Xgi" firstAttribute="leading" secondItem="WW0-wZ-IYe" secondAttribute="trailing" constant="-1" id="Bhj-r0-CRd"/>
+                <constraint firstItem="ueD-zd-dDN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ofh-Ou-ctD"/>
+                <constraint firstItem="ZOX-wi-hOK" firstAttribute="trailing" secondItem="ueD-zd-dDN" secondAttribute="trailing" id="Oh3-nG-Avw"/>
+                <constraint firstItem="Ah2-VW-rHG" firstAttribute="height" secondItem="WW0-wZ-IYe" secondAttribute="height" id="R3z-7c-XaB"/>
+                <constraint firstItem="ueD-zd-dDN" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="U14-T1-vQf"/>
+                <constraint firstItem="4Nl-tC-W9v" firstAttribute="leading" secondItem="ueD-zd-dDN" secondAttribute="leading" id="Xim-GY-3Wk"/>
+                <constraint firstAttribute="bottom" secondItem="WW0-wZ-IYe" secondAttribute="bottom" constant="2" id="ZlM-I3-nqx"/>
+                <constraint firstItem="e2E-HJ-Xgi" firstAttribute="centerY" secondItem="4Nl-tC-W9v" secondAttribute="centerY" id="ZmT-MQ-wSd"/>
+                <constraint firstItem="Ah2-VW-rHG" firstAttribute="centerY" secondItem="WW0-wZ-IYe" secondAttribute="centerY" id="aQc-Kx-qeC"/>
+                <constraint firstItem="4Nl-tC-W9v" firstAttribute="height" secondItem="ueD-zd-dDN" secondAttribute="height" id="cDA-SV-qAz"/>
+                <constraint firstItem="VcF-3z-BW7" firstAttribute="centerY" secondItem="ZOX-wi-hOK" secondAttribute="centerY" id="gLd-SO-sZq"/>
+                <constraint firstItem="WW0-wZ-IYe" firstAttribute="leading" secondItem="PAN-qP-QpJ" secondAttribute="trailing" id="hSu-op-Azl"/>
+                <constraint firstItem="e2E-HJ-Xgi" firstAttribute="trailing" secondItem="ueD-zd-dDN" secondAttribute="trailing" id="lku-kz-Efm"/>
+                <constraint firstItem="4Nl-tC-W9v" firstAttribute="bottom" secondItem="PAN-qP-QpJ" secondAttribute="bottom" id="lp0-ce-JS6"/>
+                <constraint firstItem="Ah2-VW-rHG" firstAttribute="width" secondItem="WW0-wZ-IYe" secondAttribute="width" id="ltX-zk-9zf"/>
+                <constraint firstItem="WW0-wZ-IYe" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="qag-mE-SHb"/>
+                <constraint firstItem="e2E-HJ-Xgi" firstAttribute="height" secondItem="4Nl-tC-W9v" secondAttribute="height" id="sWg-HL-zbR"/>
+                <constraint firstItem="4Nl-tC-W9v" firstAttribute="top" secondItem="ueD-zd-dDN" secondAttribute="bottom" multiplier="0.4" id="tS6-4x-9mn"/>
+                <constraint firstItem="ueD-zd-dDN" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.45" id="tXE-ge-Evc"/>
+                <constraint firstItem="ZOX-wi-hOK" firstAttribute="leading" secondItem="VcF-3z-BW7" secondAttribute="trailing" constant="8" id="u4O-yS-RVT"/>
+                <constraint firstItem="Ah2-VW-rHG" firstAttribute="centerX" secondItem="WW0-wZ-IYe" secondAttribute="centerX" id="v9B-P1-ax5"/>
+                <constraint firstItem="WW0-wZ-IYe" firstAttribute="leading" secondItem="4Nl-tC-W9v" secondAttribute="trailing" constant="-2" id="xJb-8B-UDv"/>
+                <constraint firstItem="ZOX-wi-hOK" firstAttribute="width" secondItem="PAN-qP-QpJ" secondAttribute="width" id="zS2-gE-GDi"/>
+                <constraint firstItem="ZOX-wi-hOK" firstAttribute="centerY" secondItem="PAN-qP-QpJ" secondAttribute="centerY" id="zvf-M8-3DK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="99.5" y="-348"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="channel18" width="44" height="44"/>
+        <image name="homeSelected" width="64" height="64"/>
+        <image name="navSettings" width="24" height="24"/>
+    </resources>
+</document>
